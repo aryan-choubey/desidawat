@@ -1,0 +1,43 @@
+import { useState } from 'react'
+
+import './App.css'
+import { Landing } from './pages/Landing'
+import { Routes , Route } from 'react-router-dom'
+// import { Allproduct } from './Components/Allproduct'
+import Allproduct from './Components/Allproduct';
+import { Fotter } from './Components/Fotter';
+
+import { Header } from './Components/Header'
+import ScrollToTop from './Components/ScrollToTop';
+import { Specialpro } from './Components/Specialpro';
+import { Login } from './Components/Login';
+
+
+
+function App() {
+
+
+  return (
+    <>
+
+         <Header/>
+         <ScrollToTop /> {/* ensures top scroll on route change */}
+
+
+      <Routes>
+        <Route path = "/" element= {<Landing/>}/>
+        <Route path = "/allproduct" element= {<Allproduct/>}/>
+        <Route path = "/special" element= {<Specialpro/>}/>
+        <Route path = "/login" element= {<Login/>}/>
+        
+      </Routes>
+
+      <Fotter/>
+
+      
+      
+    </>
+  )
+}
+
+export default App
