@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect,useRef } from 'react';
 import account from '../assets/user.png';
-import logo from '../assets/logoWhite.png';
+import logo from '../assets/LogoWhite.png';
 import cart from '../assets/cart.png';
 import './Header.css';
 import { useNavigate } from 'react-router-dom';
