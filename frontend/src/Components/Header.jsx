@@ -4,6 +4,7 @@ import React, { useState, useEffect,useRef } from 'react';
 import account from '../assets/user.png';
 import logo from '../assets/LogoWhite.png';
 import cart from '../assets/cart.png';
+import search from '../assets/find.png';
 import './Header.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -53,6 +54,10 @@ export const Header = () => {
       navigate("/login")
    }
 
+   const handleaddtocart = () =>{
+    navigate('./cart')
+   }
+
   return (
   
     <div>
@@ -71,7 +76,7 @@ export const Header = () => {
         <div className="search-icon">
           <input type="search" placeholder="Search..." />
 
-          <img src={account} alt="Search" />
+          <img src={search} alt="Search" />
         </div>
 
         <div className="account" onClick={handleClick}>
@@ -79,7 +84,7 @@ export const Header = () => {
         </div>
 
         <div className="cart">
-          <img src={cart} alt="Cart" />
+          <img src={cart} alt="Cart" onClick={handleaddtocart}/>
         </div>
       </header>
     </div>

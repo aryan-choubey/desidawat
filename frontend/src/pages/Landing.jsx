@@ -6,8 +6,11 @@ import  map from  '../assets/india.png'
 import  handmade from  '../assets/hand-made.png'
 import  delivery from  '../assets/free-delivery.png'
 import  preservatives from  '../assets/no-preservatives.png'
-import  poster from  '../assets/poster.jpeg'
+import  poster from  '../assets/poster.jpg'
 import card from '../assets/card.jpeg'
+import sweet from '../assets/sweet.jpeg'
+import snacks from '../assets/namkeen.jpeg'
+import thekua from '../assets/tekhua.jpeg'
 import './Landing.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -18,9 +21,9 @@ export const Landing = () => {
 
   
   const cards = [
-  { id: 1, name: "Dry Fruits", quantity: "22 Product", image: card },
-  { id: 2, name: "Snacks", quantity: "10 Product", image: card },
-  { id: 3, name: "Desi biscuits", quantity: "15 Product", image: card },
+  { id: 1, name: "Dry Fruits", quantity: "22 Product", image: sweet },
+  { id: 2, name: "Snacks", quantity: "10 Product", image: snacks },
+  { id: 3, name: "Desi biscuits", quantity: "15 Product", image: thekua },
   { id: 4, name: "Dry Fruits Sweets", quantity: "25Product", image: card },
   { id: 5, name: "Sugarless Sweets", quantity: "30Product", image: card },
   { id: 6, name: "Festival Sweets", quantity: "10Product", image: card },

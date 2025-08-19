@@ -6,8 +6,13 @@
 import Sidebar from "./Sidebar";
 import img from "../assets/card.jpeg";
 import "./Allproduct.css";
+import { useNavigate } from "react-router-dom"; // ⬅ for navigation
+
 
 export default function Allproduct() {
+
+      const navigate = useNavigate();
+
 
 
         const [quantities, setQuantities] = useState({});
@@ -22,7 +27,9 @@ export default function Allproduct() {
       return location.state.selectedCategory;
     }
     return localStorage.getItem("selectedCategory") || "all";
-  });
+  });   
+
+  
 
   
        const categories = {
@@ -48,6 +55,37 @@ export default function Allproduct() {
   useEffect(() => {
     localStorage.setItem("selectedCategory", selectedCategory);
   }, [selectedCategory]);
+
+
+   const handleAddToCart = (product) => {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const quantity = quantities[product.key] || 1;
+  const weight = weights[product.key] || "500g";
+
+  const newItem = {
+    ...product,
+    quantity,
+    weight,
+    price: product.price * quantity
+  };
+
+  const existingIndex = cart.findIndex(
+    (item) => item.key === product.key && item.weight === weight
+  );
+
+  if (existingIndex >= 0) {
+    cart[existingIndex].quantity += quantity;
+    cart[existingIndex].price = cart[existingIndex].quantity * product.price;
+  } else {
+    cart.push(newItem);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  navigate("/cart");
+};
+
 
   
 
@@ -78,6 +116,10 @@ export default function Allproduct() {
   }));
 };
 
+
+
+
+
     //This updates the category when clicked in Sidebar
   const handleCategorySelect = (categoryKey) => {
     setSelectedCategory(categoryKey);
@@ -95,7 +137,10 @@ export default function Allproduct() {
             <div key={p.key} className="product-card">
               <img src={p.image} alt={p.name} />
               <span>{p.name}</span>
-              <span>₹{p.price}</span>
+              {/* <span>₹{p.price}</span> */}
+              
+              {/* ✅ Price updates with quantity */}
+              <span>₹{(p.price * (quantities[p.key] || 1)).toFixed(2)}</span>
 
     <div className="weight-selector">
     <select
@@ -103,7 +148,7 @@ export default function Allproduct() {
       onChange={(e) => handleWeightChange(p.key, e.target.value)}
     >
       {/* <option value="">Select</option> */}
-      <option value="200g">200g</option>
+      {/* <option value="200g">200g</option> */}
       <option value="500g">500g</option>
     </select>
   
@@ -155,7 +200,9 @@ export default function Allproduct() {
               <img src={p.image} alt={p.name} />
               
               <span>{p.name}</span>
-              <span>₹{p.price}</span>
+              {/* <span>₹{p.price}</span> */}
+                        <span>₹{(p.price * (quantities[p.key] || 1)).toFixed(2)}</span>
+
 
          <div className="weight-selector">
   

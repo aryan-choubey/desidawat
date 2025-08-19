@@ -21,13 +21,13 @@ export const Fotter = () => {
                       <a href="">About</a>
                   
                     </div>
-        
+{/*         
                     <div className="About">
                       <h1>About</h1>
                       <a href="">Company</a>
                       <a href="">Our Brands</a>
                      
-                    </div>
+                    </div> */}
 
                     <div className="authlogo">
                       <img src={thankyou} alt="" />

@@ -3,6 +3,8 @@
 
 import React, { useState } from "react";
 import card from "../assets/card.jpeg";
+import { useNavigate } from "react-router-dom"; // ✅ for navigation
+
 import "./Specialpro.css";
 
 export const Specialpro = () => {
@@ -14,6 +16,8 @@ export const Specialpro = () => {
     { name: "Premium Gifting", img: card, price: { "200g": 350, "500g": 700 } },
     { name: "Luxury Gifting", img: card, price: { "200g": 400, "500g": 850 } },
   ];
+    const navigate = useNavigate();
+
 
   const [cartData, setCartData] = useState(
     products.map(() => ({ weight: "200g", qty: 1 }))
@@ -31,13 +35,31 @@ export const Specialpro = () => {
     setCartData(updated);
   };
 
-  // const handleAddToCart = (index) => {
-  //   const product = products[index];
-  //   const { weight, qty } = cartData[index];
-  //   const totalPrice = product.price[weight] * qty;
-  //   console.log(`Added to cart: ${product.name} - ${weight} x ${qty} = ₹${totalPrice}`);
-  //   // Later: Call API or update global cart context
-  // };
+  const handleAddToCart = (index) => {
+    const product = products[index];
+    const { weight, qty } = cartData[index];
+    const totalPrice = product.price[weight] * qty;
+    // console.log(`Added to cart: ${product.name} - ${weight} x ${qty} = ₹${totalPrice}`);
+
+     const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Create new item
+    const newItem = {
+      name: product.name,
+      image: product.img,
+      weight,
+      quantity: qty,
+      price: totalPrice,
+    };
+
+    // Add to cart and save
+    cart.push(newItem);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Navigate to cart page
+    navigate("/cart");
+    
+  };
 
   return (
     <div className="special-container">

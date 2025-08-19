@@ -11,6 +11,7 @@ import { Header } from './Components/Header'
 import ScrollToTop from './Components/ScrollToTop';
 import { Specialpro } from './Components/Specialpro';
 import { Login } from './Components/Login';
+import Cart from './Components/Cart';
 
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path = "/allproduct" element= {<Allproduct/>}/>
         <Route path = "/special" element= {<Specialpro/>}/>
         <Route path = "/login" element= {<Login/>}/>
+        <Route path = "/cart" element= {<Cart/>}/>
         
       </Routes>
 

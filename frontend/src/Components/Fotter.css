@@ -1,12 +1,14 @@
 
 /* fottter section */
 .fotter-container{
-    background-color: #dfa748;
+    margin-top: 1rem;
+    border-top: 1px solid rgb(146, 144, 144);
+    /* background-color: black ; */
+    height: 280px;
+    display: flex;
+    justify-content: center;
 }
-.logo-fotter{
 
-border-bottom: 5px solid white;
-}
 
 
 
@@ -14,30 +16,33 @@ border-bottom: 5px solid white;
 .fotter-content{
 margin-top: 2rem;
 display: flex;
-gap: 5rem;
+gap: 1rem;
 /* margin: 3rem; */
-margin-left: 2rem;
-margin-right: 2rem;
-padding: 4rem;
+/* margin-left: 2rem; */
+/* margin-right: 2rem; */
+/* padding: 2rem; */
+
 }
 
 .range{
 display: flex;
 flex-direction: column;
 gap: 0.5rem;
+/* margin-left: 4rem; */
 
 }
 .range h1{
+font-size: 1.7rem;
+color: black;
 margin-bottom: 1rem;
-color: #0B3D2E;
 }
 
 
 .range a{
 text-decoration: none;
-color: whitesmoke;
+color: rgb(80, 77, 77);
 font-size: 1.2rem;
-font-weight: 400;
+font-weight: 600;
 font-style: initial;
 }
 
@@ -50,7 +55,7 @@ gap: 0.5rem;
 
 .About h1{
 margin-bottom: 1rem;
-color: #0B3D2E;
+color: white;
 }
 .About a{
 text-decoration: none;
@@ -63,19 +68,21 @@ font-style: initial;
 display: flex;
 flex-direction: column;
 gap: 0.5rem;
-margin-left: 3rem;
+margin-left: 14rem;
+
 
 }
 
 .Legal h1{
 margin-bottom: 1rem;
-color: #0B3D2E;
+font-size: 1.7rem;
+color: black;
 }
 .Legal a{
 text-decoration: none;
-color:whitesmoke;
+color: rgb(80, 77, 77);
 font-size: 1.2rem;
-font-weight: 400;
+font-weight: 600;
 font-style: initial;
 }
 
@@ -85,14 +92,15 @@ font-style: initial;
 
 .socialicon h1{
     font-size: 1.3rem;
-    color: whitesmoke;
+    color: black;
 }
 
 
 
 .authlogo img{
-    width: 250px;
-    margin-left: 7rem;
+    width: 200px;
+    height: 200px;
+    margin-left: 15rem;
     /* overflow: hidden; */
 
 }
