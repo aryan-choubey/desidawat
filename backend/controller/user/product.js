@@ -3,7 +3,7 @@ const productModel = require("../../model/product")
 
 exports.getProductsByCategory = async (req, res) => {
     try {
-        const { category } = req.params;
+        const { category } = req.params.category;
         const products = await productModel.find({ category });
         res.status(200).json(products);
     } catch (error) {

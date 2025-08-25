@@ -28,7 +28,8 @@ exports.addProduct = [upload.array("image",5),async(req,res)=>{
             Price:data.Price,
             Category:data.Category,
             image :imagePaths,
-            Description:data.Description
+            Description:data.Description,
+            key:data.Name
         });
 
        await newProduct.save();
@@ -51,7 +52,10 @@ exports.updateProduct = [upload.array("image",5),async(req,res)=>{
             return res.status(404).json({ msg: "Product does not exist" });
         }
 
-        if (data.Name) product.Name = data.Name;
+        if (data.Name){
+         product.Name = data.Name;
+        product.key = data.Name;
+        }
         if (data.Price) product.Price = data.Price;
         if (data.Category) product.Category = data.Category;
         if (data.Description) product.Description = data.Description;
